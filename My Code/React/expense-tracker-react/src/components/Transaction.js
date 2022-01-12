@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
 function Transaction({ transaction }) {
   const sign = transaction.amount < 0 ? '-' : '+'
+  //How i get a action from my GlobalContext
+  const { deleteTransaction } = useContext(GlobalContext)
 
   return (
     <>
@@ -10,7 +13,12 @@ function Transaction({ transaction }) {
         <span>
           {sign} Ksh{Math.abs(transaction.amount)}
         </span>
-        <button className='delete-btn'>x</button>
+        <button
+          className='delete-btn'
+          onClick={() => deleteTransaction(transaction.id)}
+        >
+          x
+        </button>
       </li>
     </>
   )
