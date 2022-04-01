@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector:'app-post-create',
+  selector: 'app-post-create',
   templateUrl: './post-create.component.html',
-
 })
-export class PostCreateComponent {}
+export class PostCreateComponent {
+  newPost = 'No content';
+
+
+  //Method triggered when we click
+  onAddPost() {
+    this.newPost = "The User's post";
+  }
+}
